@@ -1,5 +1,6 @@
-﻿using Microsoft.AspNet.Identity.EntityFramework;
-using MyProperty.API.Core.Domain.Entities.JointTable;
+﻿using Domain.Entities.JointTable;
+using Microsoft.AspNetCore.Identity;
+
 
 namespace Domain.Entities;
 

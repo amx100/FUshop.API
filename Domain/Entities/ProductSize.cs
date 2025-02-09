@@ -2,7 +2,7 @@
 
 public class ProductSize
 {
-    public int Id { get; set; }
+    public int ProductSizeId { get; set; }
     public DateTime CreatedAt { get; set; }
     public int SizeId { get; set; }
     public int Quantity { get; set; }

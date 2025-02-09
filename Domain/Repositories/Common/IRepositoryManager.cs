@@ -1,10 +1,8 @@
-﻿using Domain.Repositories;
-
-namespace MyProperty.API.Core.Domain.Repositories.Common
+﻿namespace Domain.Repositories.Common
 {
-	public interface IRepositoryManager
+    public interface IRepositoryManager
     {
-       
+
         IAccountRepository AccountRepository { get; }
 
         IProductRepository ProductRepository { get; }
@@ -13,7 +11,7 @@ namespace MyProperty.API.Core.Domain.Repositories.Common
         IOrderRepository OrderRepository { get; }
         IOrderItemRepository OrderItemRepository { get; }
         ISizeRepository SizeRepository { get; }
-       
+
 
         IUnitOfWork UnitOfWork { get; }
     }

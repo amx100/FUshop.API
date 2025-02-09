@@ -1,6 +1,6 @@
 ﻿using System.Linq.Expressions;
 
-namespace MyProperty.API.Core.Domain.Repositories.Common
+namespace Domain.Repositories.Common
 {
     public interface IRepositoryBase<T>
     {

@@ -1,5 +1,5 @@
 ﻿using Domain.Entities;
-using MyProperty.API.Core.Domain.Repositories.Common;
+using Domain.Repositories.Common;
 using System;
 using System.Collections.Generic;
 using System.Linq;

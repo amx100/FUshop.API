@@ -1,7 +1,7 @@
 ﻿using Domain.Entities;
-using Microsoft.AspNet.Identity.EntityFramework;
+using Microsoft.AspNetCore.Identity;
 
-namespace MyProperty.API.Core.Domain.Entities.JointTable;
+namespace Domain.Entities.JointTable;
 
 public class AccountIdentityUserRole : IdentityUserRole<string>
 {

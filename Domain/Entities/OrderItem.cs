@@ -2,7 +2,7 @@
 
 public class OrderItem
 {
-    public int Id { get; set; }
+    public int OrderItemId { get; set; }
     public DateTime CreatedAt { get; set; }
     public int OrderId { get; set; }
    
@@ -10,8 +10,6 @@ public class OrderItem
     
     public int Quantity { get; set; }
     public int SizeId { get; set; }
-
-
 
     public Size Size { get; set; }
     public Product Product { get; set; }

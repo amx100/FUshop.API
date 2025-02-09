@@ -1,4 +1,4 @@
-﻿namespace MyProperty.API.Core.Domain.Repositories.Common
+﻿namespace Domain.Repositories.Common
 {
     public interface IUnitOfWork
     {

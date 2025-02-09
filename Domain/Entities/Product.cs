@@ -2,7 +2,7 @@
 
 public class Product
 {
-    public int Id { get; set; }
+    public int ProductId { get; set; }
     public DateTime CreatedAt { get; set; }
     public string Title { get; set; }
     public string Slug { get; set; }
