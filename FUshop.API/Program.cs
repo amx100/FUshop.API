@@ -1,18 +1,16 @@
-global using Contract;
-global using Microsoft.AspNetCore.Authorization;
-global using Microsoft.AspNetCore.Mvc;
-global using Services.Abstractions;
 using Domain.Entities;
+using Domain.Repositories.Common;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
-using MyProperty.API.Core.Domain.Repositories.Common;
-using MyProperty.API.Infrastructure.Persistence.Persistence.Repositories.Common;
-using Persistence;
-using Services;
+using Persistance;
+using Persistance.Repositories.Common;
+using Services.Abstractions.Common;
+using Services.Common;
 using System.Text;
+
 
 var builder = WebApplication.CreateBuilder(args);
 

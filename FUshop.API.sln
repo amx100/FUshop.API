@@ -3,23 +3,23 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.11.35327.3
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FUshop.API", "FUshop.API\FUshop.API.csproj", "{31FD20DC-3490-468C-BC17-830D8099ABC6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FUshop.API", "FUshop.API\FUshop.API.csproj", "{31FD20DC-3490-468C-BC17-830D8099ABC6}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{7BCD53EB-C4CE-469C-9167-37B7AB8ACD34}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Domain\Domain.csproj", "{5592B0CB-314F-4BD9-96CB-55C5E79655C9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain", "Domain\Domain.csproj", "{5592B0CB-314F-4BD9-96CB-55C5E79655C9}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{0F128E73-1ED7-4420-81D8-75385A8C3EC3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Persistance", "Persistance\Persistance.csproj", "{DBB340DA-18D4-4C14-9C4E-C83C1F10EC13}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Persistance", "Persistance\Persistance.csproj", "{DBB340DA-18D4-4C14-9C4E-C83C1F10EC13}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Presentation", "Presentation\Presentation.csproj", "{D46C6688-B266-40CC-8A3F-F833F568F559}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Presentation", "Presentation\Presentation.csproj", "{D46C6688-B266-40CC-8A3F-F833F568F559}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Contract", "Contract\Contract.csproj", "{644BAA2D-7A36-4D4E-A16B-A591152B6365}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Contract", "Contract\Contract.csproj", "{644BAA2D-7A36-4D4E-A16B-A591152B6365}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Services", "Services\Services.csproj", "{8A9AC5F0-1D27-4CA2-AFBE-AC21B8AF31B9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Services", "Services\Services.csproj", "{8A9AC5F0-1D27-4CA2-AFBE-AC21B8AF31B9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Services.Abstractions", "Services.Abstractions\Services.Abstractions.csproj", "{91D7D90D-BBD3-4817-9C5A-588E9155AE9A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Services.Abstractions", "Services.Abstractions\Services.Abstractions.csproj", "{91D7D90D-BBD3-4817-9C5A-588E9155AE9A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -65,7 +65,6 @@ Global
 		{D46C6688-B266-40CC-8A3F-F833F568F559} = {0F128E73-1ED7-4420-81D8-75385A8C3EC3}
 		{644BAA2D-7A36-4D4E-A16B-A591152B6365} = {7BCD53EB-C4CE-469C-9167-37B7AB8ACD34}
 		{8A9AC5F0-1D27-4CA2-AFBE-AC21B8AF31B9} = {7BCD53EB-C4CE-469C-9167-37B7AB8ACD34}
-		{91D7D90D-BBD3-4817-9C5A-588E9155AE9A} = {7BCD53EB-C4CE-469C-9167-37B7AB8ACD34}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {56E8178B-5801-48DC-AD4F-24AC673084A5}
