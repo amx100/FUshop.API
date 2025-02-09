@@ -10,27 +10,45 @@ namespace Services
         {
             try
             {
-                // Provera da li narudžbina postoji
+                // Check if order exists
                 var order = await repositoryManager.OrderRepository.GetById(orderItemDto.OrderId, cancellationToken);
                 if (order == null)
                 {
                     return new GeneralResponseDto { IsSuccess = false, Message = "Order not found." };
                 }
 
-                // Provera da li proizvod postoji
+                // Check if product exists and get its price
                 var product = await repositoryManager.ProductRepository.GetById(orderItemDto.ProductId, cancellationToken);
                 if (product == null)
                 {
                     return new GeneralResponseDto { IsSuccess = false, Message = "Product not found." };
                 }
 
-                // Provera da li veličina postoji
+                // Check if size exists
                 var size = await repositoryManager.SizeRepository.GetById(orderItemDto.SizeId, cancellationToken);
                 if (size == null)
                 {
                     return new GeneralResponseDto { IsSuccess = false, Message = "Size not found." };
                 }
 
+                // Check product size availability
+                var productSize = await repositoryManager.ProductSizeRepository
+                    .GetProductSizeByProductAndSize(orderItemDto.ProductId, orderItemDto.SizeId, cancellationToken);
+
+                if (productSize == null)
+                {
+                    return new GeneralResponseDto { IsSuccess = false, Message = "This size is not available for the selected product." };
+                }
+
+                if (productSize.Quantity < orderItemDto.Quantity)
+                {
+                    return new GeneralResponseDto { IsSuccess = false, Message = $"Not enough items in stock. Available quantity: {productSize.Quantity}" };
+                }
+
+                // Calculate item total price
+                decimal itemTotalPrice = product.Price * orderItemDto.Quantity;
+
+                // Create order item
                 var orderItem = new OrderItem
                 {
                     OrderId = orderItemDto.OrderId,
@@ -40,10 +58,24 @@ namespace Services
                     CreatedAt = DateTime.UtcNow
                 };
 
+                // Update product size quantity
+                productSize.Quantity -= orderItemDto.Quantity;
+
+                // Update order total price
+                order.TotalPrice += itemTotalPrice;
+                
+                // Save all changes
                 repositoryManager.OrderItemRepository.Create(orderItem);
+                repositoryManager.ProductSizeRepository.Update(productSize);
+                repositoryManager.OrderRepository.Update(order);
+                
                 await repositoryManager.UnitOfWork.SaveChangesAsync(cancellationToken);
 
-                return new GeneralResponseDto { IsSuccess = true, Message = "Order item created successfully." };
+                return new GeneralResponseDto 
+                { 
+                    IsSuccess = true, 
+                    Message = $"Order item created successfully. Total order price: {order.TotalPrice:C}" 
+                };
             }
             catch (Exception ex)
             {

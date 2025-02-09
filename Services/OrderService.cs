@@ -10,16 +10,26 @@ namespace Services
         {
             try
             {
-                // Kreiramo novu narudžbinu na osnovu podataka iz DTO-a
+                // Check if account exists
+                var account = await repositoryManager.AccountRepository.GetById(orderDto.AccountId, cancellationToken);
+                if (account == null)
+                {
+                    return new GeneralResponseDto
+                    {
+                        IsSuccess = false,
+                        Message = "Account not found."
+                    };
+                }
+
+                // Create new order
                 var order = new Order
                 {
                     Status = orderDto.Status,
                     Description = orderDto.Description,
                     AccountId = orderDto.AccountId,
                     Slug = orderDto.Slug,
-                    TotalPrice = orderDto.TotalPrice,
+                    TotalPrice = 0, // Starting with 0
                     CreatedAt = DateTime.UtcNow,
-                    // Inicijalizujemo praznu kolekciju za stavke narudžbine
                     OrderItems = new List<OrderItem>()
                 };
 
@@ -29,7 +39,8 @@ namespace Services
                 return new GeneralResponseDto
                 {
                     IsSuccess = true,
-                    Message = "Order created successfully."
+                    Message = "Order created successfully.",
+                    Data = new { OrderId = order.OrderId }
                 };
             }
             catch (Exception ex)

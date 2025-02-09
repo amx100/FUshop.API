@@ -12,4 +12,10 @@ public class ProductSizeRepository(DataContext dataContext) : RepositoryBase<Pro
     public void UpdateProductSize(ProductSize productSize, CancellationToken cancellationToken = default) => Update(productSize);
     public async Task<IEnumerable<ProductSize>> GetAll(CancellationToken cancellationToken = default) => await FindAll().ToListAsync(cancellationToken);
     public async Task<ProductSize> GetById(int productSizeId, CancellationToken cancellationToken = default) => await FindByCondition(ps => ps.ProductSizeId == productSizeId).FirstOrDefaultAsync(cancellationToken);
+    
+    public async Task<ProductSize?> GetProductSizeByProductAndSize(int productId, int sizeId, CancellationToken cancellationToken = default)
+    {
+        return await FindByCondition(ps => ps.ProductId == productId && ps.SizeId == sizeId)
+            .FirstOrDefaultAsync(cancellationToken);
+    }
 }

@@ -10,5 +10,6 @@ namespace Domain.Repositories
         void CreateProductSize(ProductSize productSize, CancellationToken cancellationToken = default);
         void DeleteProductSize(ProductSize productSize, CancellationToken cancellationToken = default);
         void UpdateProductSize(ProductSize productSize, CancellationToken cancellationToken = default);
+        Task<ProductSize?> GetProductSizeByProductAndSize(int productId, int sizeId, CancellationToken cancellationToken = default);
     }
 }
