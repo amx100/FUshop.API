@@ -2,7 +2,7 @@
 
 public class OrderDto
 {
-    public int Id { get; set; }
+    public int OrderId { get; set; }
     public string Status { get; set; }
     public string Description { get; set; }
     public string AccountId { get; set; } = string.Empty;
@@ -11,7 +11,7 @@ public class OrderDto
 
 }
 
-public class CreateOrderDto
+public class OrderCreateDto
 {
     public string Status { get; set; }
     public string Description { get; set; }
@@ -21,7 +21,7 @@ public class CreateOrderDto
 
 }
 
-public class UpdateOrderDto
+public class OrderUpdateDto
 {
     public string Status { get; set; }
     public string Description { get; set; }

@@ -1,12 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace Contract.DataTransferObject;
 
-namespace Contract.DataTransferObject
+public class SizeDto
 {
-    internal class SizeDto
-    {
-    }
+    public int SizeId { get; set; }
+    public string Name { get; set; }
+    public int DisplayOrder { get; set; }
+}
+
+
+public class SizeCreateDto
+{
+    public string Name { get; set; }
+
+}
+
+public class SizeUpdateDto
+{
+    public string Name { get; set; }
+
 }

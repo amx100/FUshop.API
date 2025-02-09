@@ -1,4 +1,4 @@
-﻿namespace Contract;
+﻿namespace Contract.DataTransferObject;
 
 public class AccountDto
 {

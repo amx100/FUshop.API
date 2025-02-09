@@ -1,10 +1,8 @@
-﻿using Domain.Entities;
-
-namespace Contract.DataTransferObject;
+﻿namespace Contract.DataTransferObject;
 
 public class ProductDto
 {
-    public int Id { get; set; }
+    public int ProductId { get; set; }
     public string Title { get; set; }
     public string Slug { get; set; }
     public string ImageUrl { get; set; }

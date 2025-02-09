@@ -1,4 +1,4 @@
-﻿namespace Contract;
+﻿namespace Contract.Authentication;
 
 public class ConfirmEmailDto
 {

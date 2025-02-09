@@ -2,22 +2,22 @@
 
 public class CategoryDto
 {
-    public int Id { get; set; }
+    public int CategoryId { get; set; }
     public string Name { get; set; }
     public string ImageUrl { get; set; }
     public string Slug { get; set; }
+
 }
 
-public class CreateCategoryDto
+public class CategoryCreateDto
 {
     public string Name { get; set; }
     public string ImageUrl { get; set; }
-
     public string Slug { get; set; }
 
 }
 
-public class UpdateCategoryDto
+public class CategoryUpdateDto
 {
     public string Name { get; set; }
     public string ImageUrl { get; set; }
