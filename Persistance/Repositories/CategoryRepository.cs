@@ -1,8 +1,7 @@
 ﻿using Domain.Entities;
 using Domain.Repositories;
-using MyProperty.API.Infrastructure.Persistence.Persistence.Repositories.Common;
-using Persistence;
 using Microsoft.EntityFrameworkCore;
+using Persistance.Repositories.Common;
 
 namespace Persistance.Repositories;
 
@@ -12,5 +11,5 @@ public class CategoryRepository(DataContext dataContext) : RepositoryBase<Catego
     public void DeleteCategory(Category category, CancellationToken cancellationToken = default) => Delete(category);
     public void UpdateCategory(Category category, CancellationToken cancellationToken = default) => Update(category);
     public async Task<IEnumerable<Category>> GetAll(CancellationToken cancellationToken = default) => await FindAll().ToListAsync(cancellationToken);
-    public async Task<Category> GetById(int categoryId, CancellationToken cancellationToken = default) => await FindByCondition(c => c.Id == categoryId).FirstOrDefaultAsync(cancellationToken);
+    public async Task<Category> GetById(int categoryId, CancellationToken cancellationToken = default) => await FindByCondition(c => c.CategoryId == categoryId).FirstOrDefaultAsync(cancellationToken);
 }

@@ -1,9 +1,8 @@
-﻿using MyProperty.API.Core.Domain.Repositories.Common;
-using MyProperty.API.Infrastructure.Persistence.Persistence;
-using Persistence;
+﻿using Domain.Repositories.Common;
+using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
 
-namespace MyProperty.API.Infrastructure.Persistence.Persistence.Repositories.Common
+namespace Persistance.Repositories.Common
 {
     public abstract class RepositoryBase<T> : IRepositoryBase<T> where T : class
     {
@@ -15,13 +14,13 @@ namespace MyProperty.API.Infrastructure.Persistence.Persistence.Repositories.Com
         }
 
         public IQueryable<T> FindAll(bool trackChanges = false) =>
-            !trackChanges ? 
-                DataContext.Set<T>().AsNoTracking() : 
+            !trackChanges ?
+                DataContext.Set<T>().AsNoTracking() :
                 DataContext.Set<T>();
 
         public IQueryable<T> FindByCondition(Expression<Func<T, bool>> expression, bool trackChanges = false) =>
-            !trackChanges ? 
-                DataContext.Set<T>().Where(expression).AsNoTracking() : 
+            !trackChanges ?
+                DataContext.Set<T>().Where(expression).AsNoTracking() :
                 DataContext.Set<T>().Where(expression);
 
         public void Create(T entity) => DataContext.Set<T>().Add(entity);

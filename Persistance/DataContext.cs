@@ -1,11 +1,11 @@
-﻿global using Persistence.Configurations;
-using Domain.Entities;
+﻿using Domain.Entities;
+using Domain.Entities.JointTable;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using MyProperty.API.Core.Domain.Entities.JointTable;
+using Persistance.Configurations;
 
-namespace Persistence;
+namespace Persistance;
 
 public sealed class DataContext(DbContextOptions options) : IdentityDbContext<
     Account,
@@ -46,5 +46,5 @@ public sealed class DataContext(DbContextOptions options) : IdentityDbContext<
     public DbSet<Category>? Categories { get; set; }
     public DbSet<OrderItem>? OrderItems { get; set; }
     public DbSet<Order>? Orders { get; set; }
-    public DbSet<Size>? Sizes {  get; set; }
+    public DbSet<Size>? Sizes { get; set; }
 }

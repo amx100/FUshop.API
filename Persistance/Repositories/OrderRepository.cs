@@ -1,8 +1,7 @@
 ﻿using Domain.Entities;
 using Domain.Repositories;
-using MyProperty.API.Infrastructure.Persistence.Persistence.Repositories.Common;
-using Persistence;
 using Microsoft.EntityFrameworkCore;
+using Persistance.Repositories.Common;
 
 namespace Persistance.Repositories;
 
@@ -12,5 +11,5 @@ public class OrderRepository(DataContext dataContext) : RepositoryBase<Order>(da
     public void DeleteOrder(Order order, CancellationToken cancellationToken = default) => Delete(order);
     public void UpdateOrder(Order order, CancellationToken cancellationToken = default) => Update(order);
     public async Task<IEnumerable<Order>> GetAll(CancellationToken cancellationToken = default) => await FindAll().ToListAsync(cancellationToken);
-    public async Task<Order> GetById(int orderId, CancellationToken cancellationToken = default) => await FindByCondition(o => o.Id == orderId).FirstOrDefaultAsync(cancellationToken);
+    public async Task<Order> GetById(int orderId, CancellationToken cancellationToken = default) => await FindByCondition(o => o.OrderId == orderId).FirstOrDefaultAsync(cancellationToken);
 }

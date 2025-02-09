@@ -1,9 +1,6 @@
-﻿using MyProperty.API.Core.Domain.Repositories;
-using MyProperty.API.Core.Domain.Repositories.Common;
-using MyProperty.API.Infrastructure.Persistence.Persistence;
-using Persistence;
+﻿using Domain.Repositories.Common;
 
-namespace MyProperty.API.Infrastructure.Persistence.Persistence.Repositories.Common;
+namespace Persistance.Repositories.Common;
 
 internal sealed class UnitOfWork(DataContext dbContext) : IUnitOfWork
 {

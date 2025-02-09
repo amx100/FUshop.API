@@ -1,10 +1,9 @@
 ﻿using Domain.Entities;
+using Domain.Repositories;
 using Microsoft.EntityFrameworkCore;
-using MyProperty.API.Core.Domain.Repositories;
-using MyProperty.API.Infrastructure.Persistence.Persistence.Repositories.Common;
-using Persistence;
+using Persistance.Repositories.Common;
 
-namespace MyProperty.API.Infrastructure.Persistence.Persistence.Repositories
+namespace Persistance.Repositories
 {
     public sealed class AccountRepository(DataContext dataContext) : RepositoryBase<Account>(dataContext), IAccountRepository
     {
