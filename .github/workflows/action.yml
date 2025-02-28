@@ -1,0 +1,29 @@
+name: Deploy to Hetzner Cloud
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Hetzner Cloud Deploy Server Action
+        uses: TimDaub/hetzner-cloud-deploy-server-action@v1
+        with:
+          hcloud_token: ${{ secrets.HETZNER_API_TOKEN }}
+          ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
+          ssh_public_key: ${{ secrets.SSH_PUBLIC_KEY }}
+          server_name: 'ubuntu-fushop'  # Naziv vašeg servera
+          image: 'ubuntu-20.04'      # Slika operativnog sistema
+          location: 'nbg1-dc3'          # Lokacija servera
+          server_type: 'cx32'       # Tip servera
+          ssh_key_name: 'fushopkey' # Naziv SSH ključa
+          user_data: |
+            #!/bin/bash
+            # Komande za inicijalizaciju servera
+            echo "Server je uspešno postavljen!"
