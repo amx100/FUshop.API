@@ -1,0 +1,36 @@
+name: Deploy to Hetzner
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout kod
+        uses: actions/checkout@v3
+
+      - name: Instaliraj .NET SDK
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: '8.0.0'  # prilagodi verziji tvog projekta.
+
+      - name: Restore NuGet paketa
+        run: dotnet restore FUshop.API.sln
+
+      - name: Build projekta
+        run: dotnet build FUshop.API.sln --configuration Release --no-restore
+
+      - name: Publish projekta
+        run: dotnet publish FUshop.API.sln --configuration Release --no-build --output ./publish
+
+      - name: Kopiraj fajlove na server
+        uses: appleboy/scp-action@v0.1.0
+        with:
+          host: ${{ secrets.DEPLOY_HOST }}
+          username: ${{ secrets.DEPLOY_USERNAME }}
+          key: ${{ secrets.DEPLOY_KEY }}
+          source: "./publish/"
+          target: "/var/www/fushop-api"
