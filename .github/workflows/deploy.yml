@@ -9,24 +9,24 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout kod
+      - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Instaliraj .NET SDK
+      - name: Install .NET SDK
         uses: actions/setup-dotnet@v3
         with:
-          dotnet-version: '8.0.0'  # prilagodi verziji tvog projekta.
+          dotnet-version: '8.0.x'  # Postavite na odgovarajuću verziju .NET 8 SDK-a
 
-      - name: Restore NuGet paketa
+      - name: Restore NuGet packages
         run: dotnet restore FUshop.API.sln
 
-      - name: Build projekta
+      - name: Build project
         run: dotnet build FUshop.API.sln --configuration Release --no-restore
 
-      - name: Publish projekta
+      - name: Publish project
         run: dotnet publish FUshop.API.sln --configuration Release --no-build --output ./publish
 
-      - name: Kopiraj fajlove na server
+      - name: Deploy to Hetzner
         uses: appleboy/scp-action@v0.1.0
         with:
           host: ${{ secrets.DEPLOY_HOST }}
