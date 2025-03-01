@@ -1,9 +1,10 @@
-name: Deploy to Hetzner Cloud
+﻿name: Deploy to Hetzner Cloud
 
 on:
   push:
     branches:
       - main
+  workflow_dispatch:  # Dodato za ručno pokretanje
 
 jobs:
   deploy:
