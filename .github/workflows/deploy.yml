@@ -16,7 +16,6 @@ jobs:
           server-name: "ubuntu-fushop"
           server-image: "ubuntu-20.04"
           server-type: "cx32"
-          server-location: "nbg1-dc3"
           ssh-key-name: "fushopkey"
           hcloud-token: ${{ secrets.HCLOUD_TOKEN }}
           delete-server: false
