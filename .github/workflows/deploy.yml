@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - main
-  workflow_dispatch:  # Dodato za ručno pokretanje
 
 jobs:
   deploy:
@@ -13,10 +12,10 @@ jobs:
       - uses: actions/checkout@v2
       - uses: TimDaub/hetzner-cloud-deploy-server-action@v2
         with:
-          server-name: "ubuntu-fushop"
+          server-name: "ubuntu-fushop-unique"  # Koristi jedinstveno ime
           server-image: "ubuntu-20.04"
           server-type: "cx32"
           ssh-key-name: "fushopkey"
           hcloud-token: ${{ secrets.HCLOUD_TOKEN }}
-          delete-server: false
+          delete-server: false       # ili true, ako želiš da brišeš prethodni server
           startup-timeout: 40000
